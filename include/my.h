@@ -8,6 +8,24 @@
 #ifndef my
 #define my
 
-char my_ls(void);
+#include <sys/types.h>
+#include <dirent.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <grp.h>
+#include <pwd.h>
+
+char my_ls(int argc, char **argv);
+int my_strlen(char const *str);
+int my_getnbr(char const *str);
+int my_put_nbr(int nb);
+void my_putchar(char c);
+int my_putstr(char const *str);
+int my_strlen(char const *str);
 
 #endif /* !my */

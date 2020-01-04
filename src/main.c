@@ -7,9 +7,9 @@
 
 #include "my.h"
 
-int main(int argc, char *argv)
+int main(int argc, char **argv)
 {
-    if (my_ls() == 84)
+    if (my_ls(argc, argv) == 84)
         return 84;
     return 0;
 }

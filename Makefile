@@ -7,6 +7,11 @@
 
 SRC	=		src/my_ls.c \
 			src/main.c \
+			lib/my_getnbr.c \
+			lib/my_put_nbr.c \
+			lib/my_putchar.c \
+			lib/my_putstr.c \
+			lib/my_strlen.c \
 
 CFLAGS	=	-I ./include
 
