@@ -28,5 +28,6 @@ void my_putchar(char c);
 int my_putstr(char const *str);
 int my_strlen(char const *str);
 char my_ls_big_r(struct dirent *ent, DIR *rep);
+char my_ls_function(struct dirent *ent, DIR *rep);
 
 #endif /* !my */
