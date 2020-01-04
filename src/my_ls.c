@@ -22,14 +22,16 @@ char my_ls_big_r(struct dirent *ent, DIR *rep)
 char my_ls(char **argv)
 {
     struct dirent *ent;
-    DIR *rep = opendir(argv[2]);
+    DIR *rep = opendir(".");
 
     if (!rep)
         return 84;
-    if (argv[1] = "-R") {
-        my_putstr(argv[2]);
-        my_putstr(":\n");
-        my_ls_R(ent, rep);
-        }
+    if (!argv[1]) {
+        my_ls_big_r(ent, rep);
+    }
+    if (argv[1] != NULL) {
+        rep = opendir(argv[1]);
+        my_ls_big_r(ent, rep);  
+    }
     return 0;
 }
