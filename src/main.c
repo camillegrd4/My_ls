@@ -9,7 +9,7 @@
 
 int main(int argc, char **argv)
 {
-    if (my_ls(argc, argv) == 84)
+    if (my_ls(argv) == 84)
         return 84;
     return 0;
 }

@@ -20,12 +20,13 @@
 #include <grp.h>
 #include <pwd.h>
 
-char my_ls(int argc, char **argv);
+char my_ls(char **argv);
 int my_strlen(char const *str);
 int my_getnbr(char const *str);
 int my_put_nbr(int nb);
 void my_putchar(char c);
 int my_putstr(char const *str);
 int my_strlen(char const *str);
+char my_ls_R(struct dirent *ent, DIR *rep);
 
 #endif /* !my */
