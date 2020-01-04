@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-char my_ls_R(struct dirent *ent, DIR *rep)
+char my_ls_big_r(struct dirent *ent, DIR *rep)
 {
     while ((ent = readdir(rep)) != NULL) {
         if (ent->d_name[0] != '.') {
