@@ -39,5 +39,9 @@ char *my_strdup(char const *src);
 char *my_strcpy(char *dest, char const *src);
 void disp_total_block(char *rep);
 char *concat_params(struct dirent *ent, char *path, char **argv);
+int choice_letters(char **argv, struct dirent *ent, DIR *rep);
+int time_function(char *dir);
+char *add_dir_path(char *dest, char const *src);
+char owner(struct stat buf);
 
 #endif /* !my */
