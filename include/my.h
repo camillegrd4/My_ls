@@ -19,6 +19,8 @@
 #include <stdlib.h>
 #include <grp.h>
 #include <pwd.h>
+#include <time.h>
+
 
 char my_ls(char **argv);
 int my_strlen(char const *str);
@@ -29,5 +31,13 @@ int my_putstr(char const *str);
 int my_strlen(char const *str);
 char my_ls_big_r(struct dirent *ent, DIR *rep);
 char my_ls_function(struct dirent *ent, DIR *rep);
+char my_ls_l(char *dir);
+char *file_to_inspect(char *ls, char *file);
+char *my_strcat(char *dest, char const *src);
+int my_strcmp(char const *s1, char const *s2);
+char *my_strdup(char const *src);
+char *my_strcpy(char *dest, char const *src);
+void disp_total_block(char *rep);
+char *concat_params(struct dirent *ent, char *path, char **argv);
 
 #endif /* !my */

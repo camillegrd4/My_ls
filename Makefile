@@ -12,6 +12,11 @@ SRC	=		src/my_ls.c \
 			lib/my_putchar.c \
 			lib/my_putstr.c \
 			lib/my_strlen.c \
+			src/my_lsl.c \
+			lib/my_strcat.c \
+			lib/my_strcmp.c \
+			lib/my_strcpy.c \
+			lib/concat_params.c \
 
 CFLAGS	=	-I ./include
 
