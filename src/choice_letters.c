@@ -1,15 +1,17 @@
 /*
 ** EPITECH PROJECT, 2020
-** letters
+** choice
 ** File description:
-** letters
+** choice
 */
 
 #include "my.h"
 
-int choice_letters(char **argv, int argc,
-struct dirent *ent, DIR *rep)
+int choice_letters(char **argv, int argc, struct dirent *ent,
+DIR *rep)
 {
+    if (!rep)
+        return 84;
     if (argv[1][0] == '-' && argv[1][1] == 'l') {
         if (!argv[2]) {
             my_ls_l(".", argc);
@@ -23,8 +25,6 @@ struct dirent *ent, DIR *rep)
     }
     if (!argv[2]) {
         rep = opendir(argv[1]);
-        if (!rep)
-            return 84;
         my_ls_function(ent, rep);
         return 0;
     }

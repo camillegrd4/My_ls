@@ -22,15 +22,15 @@ char my_ls_function(struct dirent *ent, DIR *rep)
 char my_ls(char **argv, int argc)
 {
     struct dirent *ent;
+    char *str;
+    int i = 1;
     DIR *rep = opendir(".");
 
     if (!rep)
         return 84;
-    if (!argv[1]) {
+    if (!argv[1])
         my_ls_function(ent, rep);
-    }
-    if (argv[1] != NULL) {
+    if (argv[1] != NULL)
         choice_letters(argv, argc, ent, rep);
-    }
     return 0;
 }

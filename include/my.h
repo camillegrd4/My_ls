@@ -41,7 +41,8 @@ char *my_strdup(char const *src);
 char *my_strcpy(char *dest, char const *src);
 void disp_total_block(char *rep);
 char *concat_params(struct dirent *ent, char *path, char **argv);
-int choice_letters(char **argv, int argc, struct dirent *ent, DIR *rep);
+int choice_letters(char **argv, int argc, struct dirent *ent,
+DIR *rep);
 int time_function(char *dir, struct stat buf);
 char *add_dir_path(char *dest, char const *src);
 char owner(struct stat buf);
@@ -49,6 +50,7 @@ char link_function(struct stat buf);
 char rights_function(struct stat buf);
 char total_function(struct stat buf);
 int size_function(struct stat buf);
+int my_flags(char str);
 char call_function(struct stat buf, char *dir, struct dirent *ent);
 
 #endif /* !my */
