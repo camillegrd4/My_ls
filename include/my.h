@@ -17,6 +17,8 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
+#include <string.h>
 #include <grp.h>
 #include <pwd.h>
 #include <time.h>
@@ -40,8 +42,12 @@ char *my_strcpy(char *dest, char const *src);
 void disp_total_block(char *rep);
 char *concat_params(struct dirent *ent, char *path, char **argv);
 int choice_letters(char **argv, struct dirent *ent, DIR *rep);
-int time_function(char *dir);
+int time_function(char *dir, struct stat buf);
 char *add_dir_path(char *dest, char const *src);
 char owner(struct stat buf);
+char link_function(struct stat buf);
+char rights_function(struct stat buf);
+char total_function(struct stat buf);
+int size_function(struct stat buf);
 
 #endif /* !my */

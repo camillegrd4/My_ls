@@ -22,6 +22,7 @@ SRC	=		src/my_ls.c \
 			src/choice_letters.c \
 			src/time_function.c \
 			src/owner.c \
+			src/rights_function.c \
 
 CFLAGS	=	-I ./include
 

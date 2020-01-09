@@ -17,5 +17,5 @@ char owner(struct stat buf)
     my_putstr(group->gr_name);
     my_putchar(' ');
     my_putstr(owner->pw_name);
-    my_putchar('\n');
+    my_putchar(' ');
 }
