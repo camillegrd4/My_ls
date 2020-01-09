@@ -24,6 +24,19 @@ int size_function(struct stat buf)
     my_putchar('\n');
 }
 
+char call_function(struct stat buf, char *dir, struct dirent *ent)
+{
+    rights_function(buf);
+    link_function(buf);
+    owner(buf);
+    my_put_nbr(buf.st_size);
+    my_putchar(' ');
+    time_function(dir, buf);
+    my_putchar(' ');
+    my_putstr(ent->d_name);
+    my_putchar('\n');
+}
+
 char my_ls_l(char *dir)
 {
     DIR *rep = opendir(dir);
@@ -41,15 +54,7 @@ char my_ls_l(char *dir)
                 my_putchar('\n');
                 return 84;
             }
-            rights_function(buf);
-            link_function(buf);
-            owner(buf);
-            my_put_nbr(buf.st_size);
-            my_putchar(' ');
-            time_function(dir, buf);
-            my_putchar(' ');
-            my_putstr(ent->d_name);
-            my_putchar('\n');
+            call_function(buf, dir, ent);
         }
     }
     closedir(rep);

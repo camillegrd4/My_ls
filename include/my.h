@@ -49,5 +49,7 @@ char link_function(struct stat buf);
 char rights_function(struct stat buf);
 char total_function(struct stat buf);
 int size_function(struct stat buf);
+char call_function(struct stat buf, char *dir, struct dirent *ent);
+int size_function(struct stat buf);
 
 #endif /* !my */
