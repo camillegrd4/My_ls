@@ -7,10 +7,15 @@
 
 #include "my.h"
 
-int choice_letters(char **argv, struct dirent *ent, DIR *rep)
+int choice_letters(char **argv, int argc,
+struct dirent *ent, DIR *rep)
 {
     if (argv[1][0] == '-' && argv[1][1] == 'l') {
-        my_ls_l(argv[2]);
+        if (!argv[2]) {
+            my_ls_l(".", argc);
+            return 0;
+        }
+        my_ls_l(argv[2], argc);
         return 0;
     }
     if (argv[1][0] == '-' && argv[1][1] == 'R') {

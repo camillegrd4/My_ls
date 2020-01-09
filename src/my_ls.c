@@ -19,7 +19,7 @@ char my_ls_function(struct dirent *ent, DIR *rep)
     my_putchar('\n');
 }
 
-char my_ls(char **argv)
+char my_ls(char **argv, int argc)
 {
     struct dirent *ent;
     DIR *rep = opendir(".");
@@ -30,7 +30,7 @@ char my_ls(char **argv)
         my_ls_function(ent, rep);
     }
     if (argv[1] != NULL) {
-        choice_letters(argv, ent, rep);
+        choice_letters(argv, argc, ent, rep);
     }
     return 0;
 }

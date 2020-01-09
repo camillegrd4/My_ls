@@ -37,7 +37,7 @@ char call_function(struct stat buf, char *dir, struct dirent *ent)
     my_putchar('\n');
 }
 
-char my_ls_l(char *dir)
+char my_ls_l(char *dir, int argc)
 {
     DIR *rep = opendir(dir);
     struct dirent *ent;
