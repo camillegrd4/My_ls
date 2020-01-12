@@ -54,5 +54,7 @@ int my_flags(char str);
 int call_function(struct stat buf, char *dir, struct dirent *ent);
 int choice_letters_l(char **argv, int argc, struct dirent *ent,
 DIR *rep);
+int end_rights_functions_two(struct stat buf);
+int end_rights_functions_one(struct stat buf);
 
 #endif /* !my */
