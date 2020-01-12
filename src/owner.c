@@ -7,15 +7,18 @@
 
 #include "my.h"
 
-char owner(struct stat buf)
+int owner(struct stat buf)
 {
-    struct passwd *owner;
-    struct group *group;
+    struct passwd *owner = NULL;
+    struct group *group = NULL;
 
     owner = getpwuid(buf.st_uid);
     group = getgrgid(buf.st_gid);
-    my_putstr(group->gr_name);
-    my_putchar(' ');
-    my_putstr(owner->pw_name);
-    my_putchar(' ');
+    if (!owner || !group)
+        return 84;
+    if (my_putstr(group->gr_name) == 84 || my_putchar(' ') == 84)
+        return 84;
+    if (my_putstr(owner->pw_name) == 84 || my_putchar(' ') == 84)
+        return 84;
+    return 0;
 }

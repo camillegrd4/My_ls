@@ -11,18 +11,18 @@
 int count(char **argv)
 {
     int i = 0;
-    int j;
+    int j = 0;
     int count = 0;
 
     while (argv[i] != NULL) {
         j = 0;
         while (argv[i][j] != '\0') {
-            j = j + 1;
-            count = count + 1;
+            j++;
+            count++;
         }
-        i = i + 1;
+        i++;
     }
-    return (count);
+    return count;
 }
 
 char *concat_params(int argc, char **argv)
@@ -31,20 +31,20 @@ char *concat_params(int argc, char **argv)
     int j = 0;
     int k = 0;
     char *dest = malloc(sizeof(char) * (count(argv) + 1) + argc);
-
+    if (!dest) return NULL;
     while (argv[i] != NULL) {
         j = 0;
         while (argv[i][j] != '\0') {
             dest[k] = argv[i][j];
-            j = j + 1;
-            k = k + 1;
+            j++;
+            k++;
         }
         if (i < argc - 1) {
             dest[k] = '\n';
-            k = k + 1;
+            k++;
         }
-        i = i + 1;
+        i++;
     }
     dest[k] = '\0';
-    return (dest);
+    return dest;
 }

@@ -13,7 +13,7 @@ int my_put_nbr(int nb)
     int i = 1;
 
     if (nb < 0 && nb != -2147483648) {
-        my_putchar('-');
+        if (my_putchar('-') == 84) return 84;
         nb = nb * (-1);
         stock = stock * (-1);
     } if (nb == -2147483648) {
@@ -24,7 +24,7 @@ int my_put_nbr(int nb)
         i = i * 10;
     }
     while (i >= 1) {
-        my_putchar(nb / i + 48);
+        if (my_putchar(nb / i + 48) == 84) return 84;
         nb = nb % i;
         i = i / 10;
     }

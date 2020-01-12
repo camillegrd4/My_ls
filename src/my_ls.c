@@ -7,30 +7,33 @@
 
 #include "my.h"
 
-char my_ls_function(struct dirent *ent, DIR *rep)
+int my_ls_function(struct dirent *ent, DIR *rep)
 {
     while ((ent = readdir(rep)) != NULL) {
         if (ent->d_name[0] != '.') {
-            my_putstr(ent->d_name);
-            my_putchar(' ');
+            if (my_putstr(ent->d_name) == 84 || my_putchar(' ') == 84)
+                return 84;
         }
     }
     closedir(rep);
-    my_putchar('\n');
+    if (my_putchar('\n') == 84)
+        return 84;
 }
 
-char my_ls(char **argv, int argc)
+int my_ls(char **argv, int argc)
 {
     struct dirent *ent;
-    char *str;
-    int i = 1;
     DIR *rep = opendir(".");
 
     if (!rep)
         return 84;
-    if (!argv[1])
-        my_ls_function(ent, rep);
-    if (argv[1] != NULL)
-        choice_letters(argv, argc, ent, rep);
+    if (!argv[1]) {
+        if (my_ls_function(ent, rep) == 84)
+            return 84;
+    }
+    if (argv[1] != NULL) {
+        if (choice_letters(argv, argc, ent, rep) == 84)
+            return 84;
+    }
     return 0;
 }

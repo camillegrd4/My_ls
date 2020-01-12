@@ -18,5 +18,5 @@ char *my_strcpy(char *dest, char const *src)
         a = a + 1;
     }
     dest[a] = '\0';
-    return (dest);
+    return dest;
 }
