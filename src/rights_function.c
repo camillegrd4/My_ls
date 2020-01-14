@@ -14,13 +14,11 @@ int end_rights_functions_one(struct stat buf)
             return 84;
     }
     else if ((buf.st_mode & S_ISGID) && (buf.st_mode & S_IXGRP)) {
-        if (my_putstr("s") == 84)
-            return 84;
+        my_putstr("s");
     } else {
-        if (my_putstr((buf.st_mode & S_IXGRP) ? ("x") : ("-")) == 84
-        || my_putstr(buf.st_mode & S_IROTH ? "r" : "-") == 84
-        || my_putstr(buf.st_mode & S_IWOTH ? "w" : "-") == 84)
-            return 84;
+        my_putstr((buf.st_mode & S_IXGRP) ? ("x") : ("-"));
+        my_putstr(buf.st_mode & S_IROTH ? "r" : "-");
+        my_putstr(buf.st_mode & S_IWOTH ? "w" : "-");
     }
 }
 
@@ -31,12 +29,10 @@ int end_rights_functions_two(struct stat buf)
             return 84;
     }
     else if ((buf.st_mode & S_ISVTX) && (buf.st_mode & S_IXOTH)) {
-        if (my_putstr("t") == 84)
-            return 84;
+        my_putstr("t");
     } else {
-        if (my_putstr((buf.st_mode & S_IXOTH) ? ("x") : ("-")) == 84
-        || my_putchar('.') == 84)
-            return 84;
+        my_putstr((buf.st_mode & S_IXOTH) ? ("x") : ("-"));
+        my_putchar('.');
     }
     return 0;
 }

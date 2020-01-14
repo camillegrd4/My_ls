@@ -11,8 +11,8 @@ int my_ls_function(struct dirent *ent, DIR *rep)
 {
     while ((ent = readdir(rep)) != NULL) {
         if (ent->d_name[0] != '.') {
-            if (my_putstr(ent->d_name) == 84 || my_putchar(' ') == 84)
-                return 84;
+            my_putstr(ent->d_name);
+            my_putchar(' ');
         }
     }
     closedir(rep);

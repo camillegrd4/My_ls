@@ -48,14 +48,12 @@ int my_ls_l(char *dir)
         return 84;
     while ((ent = readdir(rep)) != NULL) {
         if (ent->d_name[0] != '.') {
-            if (!(tmp = add_dir_path(dir, ent->d_name)))
-                return 84;
+            tmp = add_dir_path(dir, ent->d_name);
             if (stat(tmp, &buf) == -1) {
                 print_error_stat(tmp, buf);
                 return 84;
             }
-            if (call_function(buf, dir, ent) == 84)
-                return 84;
+            call_function(buf, dir, ent);
         }
     }
     closedir(rep);
