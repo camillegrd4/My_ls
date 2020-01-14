@@ -23,6 +23,8 @@ SRC	=		src/my_ls.c \
 			src/time_function.c \
 			src/owner.c \
 			src/rights_function.c \
+			src/link_function.c \
+			src/size_function.c \
 
 CFLAGS	=	-I ./include
 

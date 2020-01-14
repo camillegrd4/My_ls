@@ -14,22 +14,6 @@ int total_function(struct stat buf)
     return 0;
 }
 
-int link_function(struct stat buf)
-{
-    my_put_nbr((int) buf.st_nlink);
-    if (my_putchar(' ') == 84)
-        return 84;
-    return 0;
-}
-
-int size_function(struct stat buf)
-{
-    my_put_nbr((long) (buf.st_blksize));
-    if (my_putchar('\n') == 84)
-        return 84;
-    return 0;
-}
-
 int call_function(struct stat buf, char *dir, struct dirent *ent)
 {
     if (rights_function(buf) == 84 || link_function(buf) || owner(buf) == 84)
