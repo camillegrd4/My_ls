@@ -11,8 +11,7 @@ char *add_dir_path(char *dest, char const *src)
 {
     int i = 0;
     int count = 0;
-    char *res = NULL;
-    res = malloc(sizeof(*res) * (my_strlen(dest) + my_strlen(src) + 2));
+    char *res = malloc(sizeof(*res) * (my_strlen(dest) + my_strlen(src) + 2));
 
     if (!res)
         return NULL;

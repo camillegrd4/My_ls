@@ -13,10 +13,10 @@ int time_function(char *dir, struct stat buf)
     char *str = malloc(sizeof(char) * 8);
     int i = 4;
     int j = 0;
-    if (!time || !time_function)
+
+    if (!str || !time_function)
         return 84;
     time_function = ctime(&buf.st_mtime);
-
     while (i <= 15) {
         str[j] = time_function[i];
         i++;
@@ -25,5 +25,6 @@ int time_function(char *dir, struct stat buf)
     str[j] = '\0';
     if (my_putstr(str) == 84)
         return 84;
+    free (str);
     return 0;
 }

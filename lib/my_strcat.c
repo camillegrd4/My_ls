@@ -26,4 +26,5 @@ char *my_strcat(char *dest, char const *src)
     }
     res[i + count] = '\0';
     return res;
+    free (res);
 }

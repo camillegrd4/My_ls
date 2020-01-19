@@ -14,8 +14,6 @@ SRC	=		src/my_ls.c \
 			lib/my_strlen.c \
 			src/my_lsl.c \
 			lib/my_strcat.c \
-			lib/my_strcmp.c \
-			lib/my_strcpy.c \
 			lib/concat_params.c \
 			src/add_dir_path.c \
 			src/my_ls_big_r.c \

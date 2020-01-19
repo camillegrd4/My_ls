@@ -18,8 +18,8 @@ int call_function(struct stat buf, char *dir, struct dirent *ent)
 {
     if (rights_function(buf) == 84 || link_function(buf) || owner(buf) == 84)
         return 84;
-    my_put_nbr(buf.st_size);
-    if (my_putchar(' ') == 84 || time_function(dir, buf) == 84)
+    if (my_put_nbr(buf.st_size) || my_putchar(' ') == 84
+    || time_function(dir, buf) == 84)
         return 84;
     if (my_putchar(' ') == 84 || my_putstr(ent->d_name) == 84)
         return 84;
@@ -44,7 +44,8 @@ int my_ls_l(char *dir)
     char *tmp = NULL;
     struct stat buf;
     const char *path = ent->d_name;
-    if (!path || !rep || total_function(buf) == 84 || size_function(buf) == 84)
+    if (!path || !rep || total_function(buf) == 84
+    || size_function(buf) == 84)
         return 84;
     while ((ent = readdir(rep)) != NULL) {
         if (ent->d_name[0] != '.') {
@@ -53,7 +54,8 @@ int my_ls_l(char *dir)
                 print_error_stat(tmp, buf);
                 return 84;
             }
-            call_function(buf, dir, ent);
+            if (call_function(buf, dir, ent) == 84)
+                return 84;
         }
     }
     closedir(rep);

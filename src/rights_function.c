@@ -47,7 +47,7 @@ int rights_function(struct stat buf)
     || my_putstr(buf.st_mode & S_IWGRP ? "w" : "-") == 84
     || end_rights_functions_one(buf) == 84
     || end_rights_functions_two(buf) == 84)
-    return 84;
+        return 84;
     if (my_putchar(' ') == 84)
         return 84;
     return 0;
