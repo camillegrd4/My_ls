@@ -24,7 +24,6 @@ int my_ls(char **argv, int argc)
 {
     struct dirent *ent;
     DIR *rep = opendir(".");
-
     if (!rep)
         return 84;
     if (!argv[1]) {
